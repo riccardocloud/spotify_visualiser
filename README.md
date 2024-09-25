@@ -1,13 +1,13 @@
 # PLAYLIST VISUALISER
 
-Video Demo: https://youtu.be/pyXGtBLXjQ4
-Project Title: playlist_visualiser
-Name: Riccardo Murciano
-GitHub username: riccardocloud
-HarvardX username: riccardomurciano
-City: Rotterdam
-Country: Netherlands
-Recording Date: 25.09.2024
+#### Video Demo: https://youtu.be/pyXGtBLXjQ4
+#### Project Title: playlist_visualiser
+#### Name: Riccardo Murciano
+#### GitHub username: riccardocloud
+#### HarvardX username: riccardomurciano
+#### City: Rotterdam
+#### Country: Netherlands
+#### Recording Date: 25.09.2024
 
 ## 1. Overview
 
