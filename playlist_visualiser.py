@@ -93,7 +93,6 @@ def main():
         track_info = []
 
 
-        # Extract track IDs, names, and URIs from the playlist data
         for item in tracks_data['items']:
             track = item['track']
             if track:  # Ensure track is not None
@@ -103,22 +102,18 @@ def main():
                     'uri': track['uri'],  # Track URI to create hyperlink
                 })
 
-        # Collect the track IDs into a comma-separated string
         ids_string = ','.join([track['id'] for track in track_info][:100])  # Max 100 track IDs per request
-        # Step 3: Get audio features for the tracks
         audio_features_url = f'https://api.spotify.com/v1/audio-features?ids={ids_string}'
         features_response = requests.get(audio_features_url, headers=headers)
 
         if features_response.status_code == 200:
             audio_features = features_response.json()
 
-            # Map audio features to track info by ID
             for track in track_info:
                 for feature in audio_features['audio_features']:
                     if feature['id'] == track['id']:
                         track.update(feature)
 
-            # Step 4: Plot the data using Plotly with hyperlinks and playlist title
             track_names = [f'<a href="https://open.spotify.com/track/{track["id"]}dnoLq?si=" target="_blank">{track["name"]}</a>' for track in track_info]  # Create hyperlinks
             energy = [track.get('energy', 0) for track in track_info]
             danceability = [track.get('danceability', 0) for track in track_info]
@@ -193,7 +188,6 @@ def main():
                 textposition='top center'
             )
 
-            # Define layout with four quadrants and playlist title
             layout = go.Layout(
                 title=f'Playlist: {playlist_name}',  # Display playlist title at the top
                 xaxis=dict(
